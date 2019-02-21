@@ -1,6 +1,7 @@
 # Python Hello World Sample
 
-This application demonstrates a simple, reusable Python web application.
+This application demonstartes the prototype around Usecase 3 ( Deep Machine Learning) to predict Malign-Beingn BC states.
+- Team : DARQUIZERS ( Prithwish , Nishant ,Godasree, Vipul , Vijay)
 
 ## Run the app locally
 

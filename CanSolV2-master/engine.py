@@ -10,10 +10,11 @@ import seaborn as sns
 from sklearn import metrics
 from sklearn.linear_model import LogisticRegression
 
+
 class MLEngine:
 
     def modelTraining(self):
-        path = 'C:\\Hack the thrown\\FinalSolution\\ai4health\\CanSolV2-master\\bc-data.csv'
+        path = 'C:\\Hack the thrown\\FinalSolution\\ai4health\\CanSolV2-master\\raw-data\\bc-data.csv'
         data = pd.read_csv(path)
         df = data.copy()
         #df.head()

@@ -1,6 +1,7 @@
 import os
 try:
   import engine
+  import view
   from SimpleHTTPServer import SimpleHTTPRequestHandler as Handler
   from SocketServer import TCPServer as Server
   import pandas as pd
@@ -14,6 +15,7 @@ try:
   from sklearn import metrics
   from sklearn.linear_model import LogisticRegression
   #-----------------------------UI--------------
+
   from flask_wtf import Form
   from wtforms import TextField
 except ImportError:
@@ -24,6 +26,8 @@ class MainProgram:
   #calling MLEngine instance
   obj=engine.MLEngine()
   obj.modelTraining()
+  vObj=view.UI()
+  vObj.invoke()
 
 
 # Read port selected by the cloud for our application

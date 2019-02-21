@@ -15,7 +15,7 @@ class UI:
 
     def invoke(self):
         master = Tk()
-        master.title='Cansol'
+        master.title('Cansol')
         e1 = Entry(master)
         e1.grid(row=0, column=1)
         e1.insert(0, "Cancer-Usecase DataSet.csv")

@@ -14,6 +14,7 @@ from sklearn.linear_model import LogisticRegression
 class MLEngine:
 
     def modelTraining(self):
+        # Reading the data set into engine.
         path = 'C:\\Hack the thrown\\FinalSolution\\ai4health\\CanSolV2-master\\raw-data\\bc-data.csv'
         data = pd.read_csv(path)
         df = data.copy()
@@ -24,14 +25,24 @@ class MLEngine:
         #df.describe()
         #df_columns = list(df.columns)
         #df_columns
+
+        # Data cleaning ( removing null , duplicates etc.)
         X = df.iloc[:, 2:-1].values
         Y = df.iloc[:, 1].values
+
+        # Converting strings to binary for algo fitment
         labelencoder_Y = LabelEncoder()
         Y = labelencoder_Y.fit_transform(Y)
+
+        #Spliting the data set into test data and training the data( 25% - 75%) model
         X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size = 0.25, random_state = 0)
+
+        #Transforming training data models ()75%  to scale
         sc = StandardScaler()
         X_train = sc.fit_transform(X_train)
         X_test = sc.transform(X_test)
+
+        #Applying the algorithm to prediction of "False +ve and False -ve"
         classifier = LogisticRegression(random_state = 0,solver='liblinear')
         classifier.fit(X_train, Y_train)
         y_pred = classifier.predict(X_test)
@@ -43,7 +54,7 @@ class MLEngine:
         plt.xlabel('Predicted label');
         all_sample_title = 'Accuracy Score: {0}'.format(score)
         plt.title(all_sample_title, size = 15);
-        plt.savefig('toy_Digits_ConfusionSeabornCodementor.png')
+        plt.savefig('CanSol_ConfusionSeabornCodementor.png')
 
 #a=MLEngine()
 #a.modelTraining()

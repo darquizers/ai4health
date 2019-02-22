@@ -1,4 +1,4 @@
-# ai4health
+# Can-Sol: ai4health
 DARQUIZERS
 Prithwish Das  - Technolgy Architect , Team Captain
 Nishant Kumar ( Data analyst)

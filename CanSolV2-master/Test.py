@@ -23,14 +23,14 @@ class UI:
 
     def invoke(self):
         master = Tk()
-        master.geometry('800x700')
+        master.geometry('1920x1080')
         master.title('CanSol')
         master.configure(background="white")
         label_one = Label(master, text = 'CanSol',fg='#00004d',bg='white')
         label_one.config(font=("Times", 30,"bold italic"))
 
-        label_one.place(x=220,y=20)
-        e1 = Entry(master,bd='2')
+        label_one.place(x=500,y=20)
+        e1 = Entry(master,bd='3')
         e1.place(x=40,y=100,width=360,height=30)
 
         e1.insert(0, "Cancer-Usecase DataSet.csv")
@@ -39,27 +39,30 @@ class UI:
         resetBtn = Button(master, text='Reset', command=self.reset ,bg='#00004d', fg='white')
         resetBtn.place(x=540, y=100, width=120, height=30)
         PlotAcc=Button(master, text='Plot-Accuracy', command=self.plotAccuracy,bg='#00004d',fg='white')
-        PlotAcc.place(x=410, y=150, width=120,height=30)
+        PlotAcc.place(x=800, y=100, width=120,height=30)
         confusionBtn=Button(master, text='Confusion Matrix',command=self.confusionmatrix,bg='#00004d',fg='white')
-        confusionBtn.place(x=540, y=150, width=120,height=30)
+        confusionBtn.place(x=540, y=100, width=120,height=30)
         predictBtn=Button(master, text='Predict', command=self.predict,bg='#00004d',fg='white')
-        predictBtn.place(x=670, y=150, width=120, height=30)
+        predictBtn.place(x=670, y=100, width=120, height=30)
 
         canvas1 = Canvas(master,bg='white')
-
-        photo1 = PhotoImage(file='confusion.png')
+        photo1 = PhotoImage(file='asis.png',width=320,height=340)
         canvas1.create_image(0, 0, image=photo1,anchor='nw')
-
         canvas1.grid(row=0, column=0)
+        canvas1.place(x=40, y=150, width=350, height=380)
 
         canvas2 = Canvas(master, bg='white')
-
-        photo2 = PhotoImage(file='prediction.png',width=320,height=340)
-
-        canvas1.place(x=40, y=150, width=350, height=380)
-        canvas2.place(x=410, y=190, width=320, height=340)
-        #canvas2.pack(expand=True, fill="both")
+        photo2 = PhotoImage(file='confusion.png',width=320,height=340)
+        canvas2.place(x=410, y=150, width=350, height=380)
         canvas2.create_image(0, 0, image=photo2,anchor='nw')
+
+        canvas3 = Canvas(master, bg='white')
+        photo3 = PhotoImage(file='prediction.png', width=320, height=340)
+        canvas3.create_image(0, 0, image=photo3, anchor='nw')
+        canvas3.grid(row=0, column=0)
+        canvas3.place(x=800, y=150, width=350, height=380)
+
+
         #canvas.delete("all")
         #canvas.create_text(110, 150, fill="darkblue", font="Times 15 italic bold",text="\n Your Plot Accuracy \nwill \ndisplay here",anchor=CENTER,justify=CENTER)
 

@@ -39,6 +39,7 @@ class MLEngine:
 
 
         #plotting where the raw data stands without data analytics
+        plt.figure(figsize=(3.5, 3.5))  # 5,5 -it generates image of 500px x 500px
         plt.plot(X_train,'ro')
         plt.plot(Y_train,'g^')
         plt.title('cansol-trained-model-AS-IS')
@@ -57,21 +58,21 @@ class MLEngine:
         y_pred = classifier.predict(X_test)
         score = classifier.score(X_test, Y_test)
         cm = metrics.confusion_matrix(y_pred,Y_test)
-        plt.figure(figsize=(9,9))
-
+        plt.figure(figsize=(3.5,3.5)) # 5,5 -it generates image of 500px x 500px
         #plotting binary classification of Raw-data based on our trained model
         plt.plot(y_pred,'g^')
-        plt.title('1= +ve Cancer-malignant; 0=-Ve Cancer-benign')
+        plt.title('1=+ve cancer  0=-Ve cancer')
         plt.grid()
         #plt.show()
         plt.savefig('cansol-classi-prediction.png')
 
         #seaborn is used to plot the confusion matrix
+        plt.figure(figsize=(3.5, 3.5))  # 5,5 -it generates image of 500px x 500px
         sns.heatmap(cm, annot=True, fmt=".3f", linewidths=.5, square = True, cmap = 'Blues_r');
         plt.ylabel('Actual label');
         plt.xlabel('Predicted label');
-        all_sample_title = 'Malignant-Benign Accu Score(%): {0}'.format(score)
-        plt.title(all_sample_title, size = 15);
+        all_sample_title = 'Malig-Benign Accu Score(%): {0}'.format(score)
+        plt.title(all_sample_title, size = 8);
         plt.savefig('cansol-confusion-matrix.png')
 
 

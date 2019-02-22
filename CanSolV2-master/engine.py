@@ -44,7 +44,7 @@ class MLEngine:
         plt.plot(Y_train,'g^')
         plt.title('cansol-trained-model-AS-IS')
         plt.grid()
-        plt.savefig('cansol-trained-model-as-is.png')
+        plt.savefig('asis.png')
 
 
         #Transforming training data models ()75%  to scale
@@ -64,7 +64,7 @@ class MLEngine:
         plt.title('1=+ve cancer  0=-Ve cancer')
         plt.grid()
         #plt.show()
-        plt.savefig('cansol-classi-prediction.png')
+        plt.savefig('prediction.png')
 
         #seaborn is used to plot the confusion matrix
         plt.figure(figsize=(3.5, 3.5))  # 5,5 -it generates image of 500px x 500px
@@ -73,7 +73,7 @@ class MLEngine:
         plt.xlabel('Predicted label');
         all_sample_title = 'Malig-Benign Accu Score(%): {0}'.format(score)
         plt.title(all_sample_title, size = 8);
-        plt.savefig('cansol-confusion-matrix.png')
+        plt.savefig('confusion.png')
 
 
 #a=MLEngine()

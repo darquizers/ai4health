@@ -1,7 +1,7 @@
 import os
 try:
   import engine
-  import view
+  import Test
   from SimpleHTTPServer import SimpleHTTPRequestHandler as Handler
   from SocketServer import TCPServer as Server
   import pandas as pd
@@ -26,7 +26,7 @@ class MainProgram:
   #calling MLEngine instance
   obj=engine.MLEngine()
   obj.modelTraining()
-  vObj=view.UI()
+  vObj=Test.UI()
   vObj.invoke()
 
 

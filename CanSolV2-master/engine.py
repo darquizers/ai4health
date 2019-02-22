@@ -37,6 +37,15 @@ class MLEngine:
         #Spliting the data set into test data and training the data( 25% - 75%) model
         X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size = 0.25, random_state = 0)
 
+
+        #plotting where the raw data stands without data analytics
+        plt.plot(X_train,'ro')
+        plt.plot(Y_train,'g^')
+        plt.title('cansol-trained-model-AS-IS')
+        plt.grid()
+        plt.savefig('cansol-trained-model-as-is.png')
+
+
         #Transforming training data models ()75%  to scale
         sc = StandardScaler()
         X_train = sc.fit_transform(X_train)
@@ -49,12 +58,22 @@ class MLEngine:
         score = classifier.score(X_test, Y_test)
         cm = metrics.confusion_matrix(y_pred,Y_test)
         plt.figure(figsize=(9,9))
+
+        #plotting binary classification of Raw-data based on our trained model
+        plt.plot(y_pred,'g^')
+        plt.title('1= +ve Cancer-malignant; 0=-Ve Cancer-benign')
+        plt.grid()
+        #plt.show()
+        plt.savefig('cansol-classi-prediction.png')
+
+        #seaborn is used to plot the confusion matrix
         sns.heatmap(cm, annot=True, fmt=".3f", linewidths=.5, square = True, cmap = 'Blues_r');
         plt.ylabel('Actual label');
         plt.xlabel('Predicted label');
-        all_sample_title = 'Accuracy Score: {0}'.format(score)
+        all_sample_title = 'Malignant-Benign Accu Score(%): {0}'.format(score)
         plt.title(all_sample_title, size = 15);
-        plt.savefig('CanSol_ConfusionSeabornCodementor.png')
+        plt.savefig('cansol-confusion-matrix.png')
+
 
 #a=MLEngine()
 #a.modelTraining()
